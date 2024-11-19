@@ -43,7 +43,8 @@ import Cordova
         assetHandler.setServerUrl(configuration.serverURL)
         let delegationHandler = WebViewDelegationHandler()
         prepareWebView(with: configuration, assetHandler: assetHandler, delegationHandler: delegationHandler)
-        view = webView
+        view = UIView()
+        view.addSubview(webView!)
         // create the bridge
         capacitorBridge = CapacitorBridge(with: configuration,
                                           delegate: self,

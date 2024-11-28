@@ -45,6 +45,13 @@ import Cordova
         prepareWebView(with: configuration, assetHandler: assetHandler, delegationHandler: delegationHandler)
         view = UIView()
         view.addSubview(webView!)
+        webView!.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            webView!.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            webView!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            webView!.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            webView!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+        ])
         // create the bridge
         capacitorBridge = CapacitorBridge(with: configuration,
                                           delegate: self,
